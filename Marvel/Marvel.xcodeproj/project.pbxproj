@@ -57,6 +57,10 @@
 		55206D582188FF4100F2427D /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D572188FF4100F2427D /* HomeModel.swift */; };
 		55206D5A2189007D00F2427D /* HomeScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55206D592189007D00F2427D /* HomeScene.storyboard */; };
 		55206D5C218902BD00F2427D /* apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55206D5B218902BD00F2427D /* apikeys.plist */; };
+		553F46D7218CDD2E007E9664 /* MarvelAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F46D6218CDD2E007E9664 /* MarvelAPIClientTest.swift */; };
+		553F46D9218CDDE4007E9664 /* RequestManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F46D8218CDDE4007E9664 /* RequestManagerTest.swift */; };
+		553F46DB218CDE42007E9664 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F46DA218CDE42007E9664 /* HomeInteractorTests.swift */; };
+		553F46DD218CDED8007E9664 /* DetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F46DC218CDED8007E9664 /* DetailInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +138,10 @@
 		55206D572188FF4100F2427D /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		55206D592189007D00F2427D /* HomeScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScene.storyboard; sourceTree = "<group>"; };
 		55206D5B218902BD00F2427D /* apikeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apikeys.plist; sourceTree = "<group>"; };
+		553F46D6218CDD2E007E9664 /* MarvelAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIClientTest.swift; sourceTree = "<group>"; };
+		553F46D8218CDDE4007E9664 /* RequestManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerTest.swift; sourceTree = "<group>"; };
+		553F46DA218CDE42007E9664 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
+		553F46DC218CDED8007E9664 /* DetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +209,10 @@
 			children = (
 				55206CD82188AFF400F2427D /* MarvelTests.swift */,
 				55206CDA2188AFF400F2427D /* Info.plist */,
+				553F46D6218CDD2E007E9664 /* MarvelAPIClientTest.swift */,
+				553F46D8218CDDE4007E9664 /* RequestManagerTest.swift */,
+				553F46DA218CDE42007E9664 /* HomeInteractorTests.swift */,
+				553F46DC218CDED8007E9664 /* DetailInteractorTests.swift */,
 			);
 			path = MarvelTests;
 			sourceTree = "<group>";
@@ -604,7 +616,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553F46DD218CDED8007E9664 /* DetailInteractorTests.swift in Sources */,
+				553F46D7218CDD2E007E9664 /* MarvelAPIClientTest.swift in Sources */,
 				55206CD92188AFF400F2427D /* MarvelTests.swift in Sources */,
+				553F46D9218CDDE4007E9664 /* RequestManagerTest.swift in Sources */,
+				553F46DB218CDE42007E9664 /* HomeInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
