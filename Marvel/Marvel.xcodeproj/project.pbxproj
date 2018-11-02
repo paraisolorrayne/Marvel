@@ -39,6 +39,24 @@
 		55206D2D2188F6A100F2427D /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D2C2188F6A100F2427D /* AppConfig.swift */; };
 		55206D2F2188F6B700F2427D /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D2E2188F6B700F2427D /* NetworkUtils.swift */; };
 		55206D322188F72700F2427D /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D312188F72700F2427D /* RequestManager.swift */; };
+		55206D382188FB7F00F2427D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D372188FB7F00F2427D /* DetailViewController.swift */; };
+		55206D3A2188FBB100F2427D /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D392188FBB100F2427D /* DetailModel.swift */; };
+		55206D3C2188FBD000F2427D /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D3B2188FBD000F2427D /* DetailRouter.swift */; };
+		55206D3E2188FBF900F2427D /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D3D2188FBF900F2427D /* DetailInteractor.swift */; };
+		55206D402188FC1000F2427D /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D3F2188FC1000F2427D /* DetailPresenter.swift */; };
+		55206D422188FC3100F2427D /* DetailScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55206D412188FC3100F2427D /* DetailScene.storyboard */; };
+		55206D462188FDE600F2427D /* HomeCharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D452188FDE600F2427D /* HomeCharacterTableViewCell.swift */; };
+		55206D482188FE1100F2427D /* HomePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D472188FE1100F2427D /* HomePlaceholderView.swift */; };
+		55206D4A2188FE2C00F2427D /* HomeLoadingPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D492188FE2C00F2427D /* HomeLoadingPlaceholderView.swift */; };
+		55206D4C2188FE4500F2427D /* HomeErrorPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D4B2188FE4500F2427D /* HomeErrorPlaceholderView.swift */; };
+		55206D4E2188FE9B00F2427D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D4D2188FE9B00F2427D /* HomeViewController.swift */; };
+		55206D502188FED500F2427D /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D4F2188FED500F2427D /* HomeRouter.swift */; };
+		55206D522188FEE900F2427D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D512188FEE900F2427D /* HomePresenter.swift */; };
+		55206D542188FF0700F2427D /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D532188FF0700F2427D /* HomeInteractor.swift */; };
+		55206D562188FF2000F2427D /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D552188FF2000F2427D /* HomeWorker.swift */; };
+		55206D582188FF4100F2427D /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55206D572188FF4100F2427D /* HomeModel.swift */; };
+		55206D5A2189007D00F2427D /* HomeScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55206D592189007D00F2427D /* HomeScene.storyboard */; };
+		55206D5C218902BD00F2427D /* apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55206D5B218902BD00F2427D /* apikeys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +116,24 @@
 		55206D2E2188F6B700F2427D /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
 		55206D312188F72700F2427D /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		55206D342188F78F00F2427D /* MarvelApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarvelApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		55206D372188FB7F00F2427D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		55206D392188FBB100F2427D /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		55206D3B2188FBD000F2427D /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		55206D3D2188FBF900F2427D /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		55206D3F2188FC1000F2427D /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		55206D412188FC3100F2427D /* DetailScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailScene.storyboard; sourceTree = "<group>"; };
+		55206D452188FDE600F2427D /* HomeCharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCharacterTableViewCell.swift; sourceTree = "<group>"; };
+		55206D472188FE1100F2427D /* HomePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePlaceholderView.swift; sourceTree = "<group>"; };
+		55206D492188FE2C00F2427D /* HomeLoadingPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLoadingPlaceholderView.swift; sourceTree = "<group>"; };
+		55206D4B2188FE4500F2427D /* HomeErrorPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeErrorPlaceholderView.swift; sourceTree = "<group>"; };
+		55206D4D2188FE9B00F2427D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		55206D4F2188FED500F2427D /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		55206D512188FEE900F2427D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		55206D532188FF0700F2427D /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		55206D552188FF2000F2427D /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		55206D572188FF4100F2427D /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		55206D592189007D00F2427D /* HomeScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScene.storyboard; sourceTree = "<group>"; };
+		55206D5B218902BD00F2427D /* apikeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apikeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +217,7 @@
 		55206CF12188B04E00F2427D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				55206D5B218902BD00F2427D /* apikeys.plist */,
 				55206CF72188B2A600F2427D /* MarvelFont.otf */,
 				55206CC72188AFF000F2427D /* Marvel.xcdatamodeld */,
 				55206CCC2188AFF400F2427D /* LaunchScreen.storyboard */,
@@ -201,6 +238,8 @@
 		55206CF32188B24200F2427D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				55206D362188FB4B00F2427D /* Detail */,
+				55206D352188FB3F00F2427D /* Home */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -314,6 +353,53 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		55206D352188FB3F00F2427D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				55206D442188FCAC00F2427D /* Placeholders */,
+				55206D432188FC9E00F2427D /* Cells */,
+				55206D4D2188FE9B00F2427D /* HomeViewController.swift */,
+				55206D4F2188FED500F2427D /* HomeRouter.swift */,
+				55206D512188FEE900F2427D /* HomePresenter.swift */,
+				55206D532188FF0700F2427D /* HomeInteractor.swift */,
+				55206D552188FF2000F2427D /* HomeWorker.swift */,
+				55206D572188FF4100F2427D /* HomeModel.swift */,
+				55206D592189007D00F2427D /* HomeScene.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		55206D362188FB4B00F2427D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				55206D372188FB7F00F2427D /* DetailViewController.swift */,
+				55206D392188FBB100F2427D /* DetailModel.swift */,
+				55206D3B2188FBD000F2427D /* DetailRouter.swift */,
+				55206D3D2188FBF900F2427D /* DetailInteractor.swift */,
+				55206D3F2188FC1000F2427D /* DetailPresenter.swift */,
+				55206D412188FC3100F2427D /* DetailScene.storyboard */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		55206D432188FC9E00F2427D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				55206D452188FDE600F2427D /* HomeCharacterTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		55206D442188FCAC00F2427D /* Placeholders */ = {
+			isa = PBXGroup;
+			children = (
+				55206D472188FE1100F2427D /* HomePlaceholderView.swift */,
+				55206D492188FE2C00F2427D /* HomeLoadingPlaceholderView.swift */,
+				55206D4B2188FE4500F2427D /* HomeErrorPlaceholderView.swift */,
+			);
+			path = Placeholders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -419,8 +505,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55206D5C218902BD00F2427D /* apikeys.plist in Resources */,
+				55206D5A2189007D00F2427D /* HomeScene.storyboard in Resources */,
 				55206CCE2188AFF400F2427D /* LaunchScreen.storyboard in Resources */,
 				55206CFA2188B2E800F2427D /* Default-568h@2x.png in Resources */,
+				55206D422188FC3100F2427D /* DetailScene.storyboard in Resources */,
 				55206CF82188B2A600F2427D /* MarvelFont.otf in Resources */,
 				55206CCB2188AFF400F2427D /* Assets.xcassets in Resources */,
 			);
@@ -469,29 +558,44 @@
 			files = (
 				55206D0B2188EE3E00F2427D /* Urls.swift in Sources */,
 				55206D072188EE1300F2427D /* APIResponse.swift in Sources */,
+				55206D482188FE1100F2427D /* HomePlaceholderView.swift in Sources */,
 				55206D122188EEBC00F2427D /* GetCharacters.swift in Sources */,
 				55206D162188F30800F2427D /* APIResult.swift in Sources */,
 				55206D142188F2EC00F2427D /* HTTPParam.swift in Sources */,
+				55206D502188FED500F2427D /* HomeRouter.swift in Sources */,
 				55206D102188EE9500F2427D /* MarvelAPIClient.swift in Sources */,
 				55206CC92188AFF000F2427D /* Marvel.xcdatamodeld in Sources */,
+				55206D4A2188FE2C00F2427D /* HomeLoadingPlaceholderView.swift in Sources */,
 				55206D032188EDC900F2427D /* DataContainer.swift in Sources */,
+				55206D462188FDE600F2427D /* HomeCharacterTableViewCell.swift in Sources */,
 				55206D1E2188F36D00F2427D /* AuthenticationParams.swift in Sources */,
+				55206D382188FB7F00F2427D /* DetailViewController.swift in Sources */,
 				55206D2D2188F6A100F2427D /* AppConfig.swift in Sources */,
 				55206D052188EDF200F2427D /* Thumbnail.swift in Sources */,
 				55206D182188F31C00F2427D /* QueryEncoder.swift in Sources */,
 				55206CFF2188ED4700F2427D /* APIRequest.swift in Sources */,
 				55206D212188F59D00F2427D /* StringExtensions.swift in Sources */,
 				55206D232188F5B900F2427D /* Collection+RandomElement.swift in Sources */,
+				55206D3A2188FBB100F2427D /* DetailModel.swift in Sources */,
 				55206D322188F72700F2427D /* RequestManager.swift in Sources */,
 				55206D272188F5EF00F2427D /* DateExtensions.swift in Sources */,
 				55206D092188EE2700F2427D /* APIError.swift in Sources */,
+				55206D4E2188FE9B00F2427D /* HomeViewController.swift in Sources */,
 				55206CC12188AFF000F2427D /* AppDelegate.swift in Sources */,
+				55206D402188FC1000F2427D /* DetailPresenter.swift in Sources */,
+				55206D3E2188FBF900F2427D /* DetailInteractor.swift in Sources */,
 				55206D012188ED9900F2427D /* Character.swift in Sources */,
 				55206D1A2188F33400F2427D /* ApiKeys.swift in Sources */,
+				55206D3C2188FBD000F2427D /* DetailRouter.swift in Sources */,
 				55206D1C2188F34F00F2427D /* SortingOrder.swift in Sources */,
 				55206D292188F65700F2427D /* ImageCacheManager.swift in Sources */,
+				55206D542188FF0700F2427D /* HomeInteractor.swift in Sources */,
+				55206D522188FEE900F2427D /* HomePresenter.swift in Sources */,
 				55206D2F2188F6B700F2427D /* NetworkUtils.swift in Sources */,
 				55206D2B2188F67200F2427D /* FontUtils.swift in Sources */,
+				55206D4C2188FE4500F2427D /* HomeErrorPlaceholderView.swift in Sources */,
+				55206D562188FF2000F2427D /* HomeWorker.swift in Sources */,
+				55206D582188FF4100F2427D /* HomeModel.swift in Sources */,
 				55206D252188F5D400F2427D /* ViewController+Is3DTouchAvailable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,8 +764,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 39H6XWV852;
+				DEVELOPMENT_TEAM = SZSQ274898;
 				INFOPLIST_FILE = "$(SRCROOT)/Marvel/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -678,8 +783,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 39H6XWV852;
+				DEVELOPMENT_TEAM = SZSQ274898;
 				INFOPLIST_FILE = "$(SRCROOT)/Marvel/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
