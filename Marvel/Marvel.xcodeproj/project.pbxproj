@@ -61,6 +61,7 @@
 		553F46D9218CDDE4007E9664 /* RequestManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F46D8218CDDE4007E9664 /* RequestManagerTest.swift */; };
 		553F46DB218CDE42007E9664 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F46DA218CDE42007E9664 /* HomeInteractorTests.swift */; };
 		553F46DD218CDED8007E9664 /* DetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F46DC218CDED8007E9664 /* DetailInteractorTests.swift */; };
+		553F46DF218DE9CC007E9664 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F46DE218DE9CC007E9664 /* IndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		553F46D8218CDDE4007E9664 /* RequestManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerTest.swift; sourceTree = "<group>"; };
 		553F46DA218CDE42007E9664 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
 		553F46DC218CDED8007E9664 /* DetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractorTests.swift; sourceTree = "<group>"; };
+		553F46DE218DE9CC007E9664 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,11 +196,11 @@
 			isa = PBXGroup;
 			children = (
 				55206CC02188AFF000F2427D /* AppDelegate.swift */,
+				55206CF52188B26400F2427D /* Library */,
 				55206CF22188B23B00F2427D /* Models */,
 				55206CF32188B24200F2427D /* Scenes */,
 				55206CF42188B25000F2427D /* Services */,
 				55206CF12188B04E00F2427D /* Supporting Files */,
-				55206CF52188B26400F2427D /* Library */,
 				55206CF62188B26C00F2427D /* Workers */,
 			);
 			path = Marvel;
@@ -275,6 +277,7 @@
 				55206D2C2188F6A100F2427D /* AppConfig.swift */,
 				55206D2E2188F6B700F2427D /* NetworkUtils.swift */,
 				55206D342188F78F00F2427D /* MarvelApp-Bridging-Header.h */,
+				553F46DE218DE9CC007E9664 /* IndicatorView.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				55206D102188EE9500F2427D /* MarvelAPIClient.swift in Sources */,
 				55206CC92188AFF000F2427D /* Marvel.xcdatamodeld in Sources */,
 				55206D4A2188FE2C00F2427D /* HomeLoadingPlaceholderView.swift in Sources */,
+				553F46DF218DE9CC007E9664 /* IndicatorView.swift in Sources */,
 				55206D032188EDC900F2427D /* DataContainer.swift in Sources */,
 				55206D462188FDE600F2427D /* HomeCharacterTableViewCell.swift in Sources */,
 				55206D1E2188F36D00F2427D /* AuthenticationParams.swift in Sources */,

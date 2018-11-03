@@ -17,21 +17,24 @@ protocol HomeDisplayLogic: class {
 }
 
 enum PlaceholderState {
-    case None
-    case Loading
-    case Error
+    case none
+    case loading
+    case error
 }
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerPreviewingDelegate, HomeDisplayLogic {
-    
+class HomeViewController: UIViewController, HomeDisplayLogic {
+
+    // MARK: Properties
     var interactor: HomeBusinessLogic?
     var router: HomeRouter?
     var imageCacheManager: ImageCacheManager = ImageCacheManager.shared
     var refreshControl = UIRefreshControl()
     private var arrayOfCharacters: [CharacterItem] = [CharacterItem]()
-    
+
+    // MARK: IBOutlet
     @IBOutlet var charactersTableView: UITableView!
-    
+
+    // MARK: Initializers
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -41,42 +44,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.init(coder: aDecoder)
         setup()
     }
-    
-    private func setup() {
-        self.title = "Characters"
-        let viewController = self
-        let interactor = HomeInteractor()
-        let presenter = HomePresenter()
-        let router = HomeRouter()
-        viewController.interactor = interactor
-        viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
-    }
-    
-    func setupRefreshControl() {
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action:#selector(refreshCharacterData(_:)), for: UIControl.Event.valueChanged)
-        self.charactersTableView.refreshControl = refreshControl
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-    
-    @objc private func refreshCharacterData(_ sender: Any) {
-        self.arrayOfCharacters.removeAll()
-        self.charactersTableView.reloadData()
-        getCharacterList()
-    }
-    
+
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         if is3DTouchAvailable() {
@@ -87,20 +56,70 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupRefreshControl()
         getCharacterList()
     }
-    
+
+    // MARK: Business Logic
     private func getCharacterList() {
-        setPlaceholderView(.Loading)
+        setPlaceholderView(.loading)
         interactor?.fetchCharacters(request: HomeModel.Request())
     }
-    
+
+    func displayFetchedCharacters(viewModel: HomeModel.ViewModel) {
+        if let characters = viewModel.listOfCharacters {
+            arrayOfCharacters.removeAll()
+            arrayOfCharacters.append(contentsOf: characters)
+            self.setPlaceholderView(.none)
+            DispatchQueue.main.async {
+                self.charactersTableView.reloadData()
+                self.stopRefreshing()
+            }
+        }
+    }
+
+    func displayError() {
+        setPlaceholderView(.error)
+        stopRefreshing()
+    }
+
+    // MARK: UI
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = self.charactersTableView.contentOffset.y
+        for cell in self.charactersTableView.visibleCells as! [HomeCharacterTableViewCell] {
+            let x = cell.characterImage.frame.origin.x
+            let w = cell.characterImage.bounds.width
+            let h = cell.characterImage.bounds.height
+            let y = ((offsetY - cell.frame.origin.y) / h) * 25
+            cell.characterImage.frame = CGRect(x: x, y: y, width: w, height: h)
+        }
+    }
+
+    func setPlaceholderView(_ state: PlaceholderState) {
+        DispatchQueue.main.async {
+            switch (state) {
+            case .error:
+                self.charactersTableView.backgroundView = HomeErrorPlaceholderView()
+                break
+            case .loading:
+                self.charactersTableView.backgroundView = HomeLoadingPlaceholderView()
+                break
+            case .none:
+                self.charactersTableView.backgroundView = nil
+                break
+            }
+        }
+    }
+}
+
+// MARK: TableView Methods
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.charactersTableView.numberOfSections
+        return charactersTableView.numberOfSections
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arrayOfCharacters.count
+        return arrayOfCharacters.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HomeCharacterTableViewCell = tableView.dequeueReusableCell(withIdentifier: "characterView") as! HomeCharacterTableViewCell
         let characterItem = self.arrayOfCharacters[indexPath.row] as CharacterItem
@@ -113,7 +132,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
-    
+}
+
+// MARK: Navigation
+extension HomeViewController {
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+}
+
+// MARK: UIViewControllerPreviewingDelegate
+extension HomeViewController: UIViewControllerPreviewingDelegate {
+
     private func createDetailViewControllerIndexPath(indexPath: IndexPath) -> DetailViewController {
         let characterItem = arrayOfCharacters[indexPath.row]
         let viewModel = DetailModel.ViewModel(characterName: characterItem.name, characterImageUrl: characterItem.thumbnailUrl, characterDescription: characterItem.description, characterDetailUrl: characterItem.detailUrl)
@@ -135,57 +171,46 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         router?.navigateToDetailViewController(source: self, destination: viewControllerToCommit as! DetailViewController)
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = self.charactersTableView.contentOffset.y
-        for cell in self.charactersTableView.visibleCells as! [HomeCharacterTableViewCell] {
-            let x = cell.characterImage.frame.origin.x
-            let w = cell.characterImage.bounds.width
-            let h = cell.characterImage.bounds.height
-            let y = ((offsetY - cell.frame.origin.y) / h) * 25
-            cell.characterImage.frame = CGRect(x: x, y: y, width: w, height: h)
-        }
+}
+
+// MARK: Setup
+extension HomeViewController {
+
+    private func setup() {
+        self.title = "Characters"
+        let viewController = self
+        let interactor = HomeInteractor()
+        let presenter = HomePresenter()
+        let router = HomeRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
     }
-    
-    func displayFetchedCharacters(viewModel: HomeModel.ViewModel) {
-        if let characters = viewModel.listOfCharacters {
-            arrayOfCharacters.removeAll()
-            arrayOfCharacters.append(contentsOf: characters)
-            self.setPlaceholderView(.None)
-            DispatchQueue.main.async {
-                self.charactersTableView.reloadData()
-                self.stopRefreshing()
-            }
-        }
+
+    func setupRefreshControl() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action:#selector(refreshCharacterData(_:)), for: UIControl.Event.valueChanged)
+        charactersTableView.refreshControl = refreshControl
     }
-    
-    func setPlaceholderView(_ state: PlaceholderState) {
-        DispatchQueue.main.async {
-            switch (state) {
-            case .Error:
-                self.charactersTableView.backgroundView = HomeErrorPlaceholderView()
-                break
-            case .Loading:
-                self.charactersTableView.backgroundView = HomeLoadingPlaceholderView()
-                break
-            case .None:
-                self.charactersTableView.backgroundView = nil
-                break
-            }
-        }
+}
+
+// MARK: Refresh
+extension HomeViewController {
+
+    @objc private func refreshCharacterData(_ sender: Any) {
+        self.arrayOfCharacters.removeAll()
+        self.charactersTableView.reloadData()
+        getCharacterList()
     }
-    
+
     private func stopRefreshing() {
         DispatchQueue.main.async {
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
         }
-    }
-    
-    func displayError() {
-        setPlaceholderView(.Error)
-        stopRefreshing()
-        
     }
 }
