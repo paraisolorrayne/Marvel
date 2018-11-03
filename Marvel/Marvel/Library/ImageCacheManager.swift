@@ -47,11 +47,17 @@ class ImageCacheManager {
                 completionHandler(self.placeholderImages.randomElement()!)
             }
             downloadTask = urlSession.downloadTask(with: imageUrl, completionHandler: { (location, _, _) in
-                if let data = try? Data(contentsOf: location!) {
-                    let image: UIImage! = UIImage(data: data)
-                    self.imageCache.setObject(image, forKey: imageUrl.lastPathComponent as NSString)
-                    DispatchQueue.main.async {
+                if !NetworkUtils.isInternetConnectionAvailable() {
+                    if let image = UIImage(named: "MarvelTileBackground") {
                         completionHandler(image)
+                    }
+                } else {
+                    if let data = try? Data(contentsOf: location!) {
+                        let image: UIImage! = UIImage(data: data)
+                        self.imageCache.setObject(image, forKey: imageUrl.lastPathComponent as NSString)
+                        DispatchQueue.main.async {
+                            completionHandler(image)
+                        }
                     }
                 }
             })
