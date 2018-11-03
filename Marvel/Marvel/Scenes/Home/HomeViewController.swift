@@ -121,7 +121,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: HomeCharacterTableViewCell = tableView.dequeueReusableCell(withIdentifier: "characterView") as! HomeCharacterTableViewCell
+        let cell: HomeCharacterTableViewCell = tableView.dequeueReusableCell(withIdentifier: "\(HomeCharacterTableViewCell.self)") as! HomeCharacterTableViewCell
         let characterItem = self.arrayOfCharacters[indexPath.row] as CharacterItem
         cell.characterName.text = characterItem.name
         imageCacheManager.getImage(imageUrl: characterItem.thumbnailUrl!) { (image) in

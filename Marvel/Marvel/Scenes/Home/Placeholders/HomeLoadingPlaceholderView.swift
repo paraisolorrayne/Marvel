@@ -16,7 +16,7 @@ class HomeLoadingPlaceholderView: PlaceholderView {
     override func setupView() {
         super.setupView()
         
-        label.text = "Fetching info about Marvel characters..."
+        label.text = "Fetching Marvel characters..."
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         centerView.addSubview(label)
